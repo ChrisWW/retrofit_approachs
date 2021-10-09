@@ -1,11 +1,11 @@
 package com.example.retrofitapplication.repository
 
-import com.example.retrofitapplication.api.ApiRequest
 import com.example.retrofitapplication.api.RetrofitInstance
+import com.example.retrofitapplication.model.ApiData
 
 class Repository {
 
-    suspend fun getRandomDog(): ApiRequest? {
-        return RetrofitInstance.repoAPI
+    suspend fun getRandomDog(): ApiData? {
+        return RetrofitInstance.repoAPI?.getRandomDog()
     }
 }

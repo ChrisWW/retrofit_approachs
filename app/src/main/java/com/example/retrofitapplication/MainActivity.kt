@@ -7,19 +7,14 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
-import com.example.retrofitapplication.api.ApiRequest
-import com.example.retrofitapplication.api.BASE_URL
 import com.example.retrofitapplication.api.RetrofitInstance
 import com.example.retrofitapplication.databinding.ActivityMainBinding
+import com.example.retrofitapplication.repository.Repository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import java.lang.Exception
 
 class MainActivity : AppCompatActivity() {
@@ -61,7 +56,8 @@ class MainActivity : AppCompatActivity() {
     private fun makeApiRequest() {
         GlobalScope.launch(Dispatchers.IO) {
             try {
-                val response = RetrofitInstance.repoAPI?.getRandomDog()
+                val repo = Repository()
+                val response = repo.getRandomDog()
                 Log.d("Main", "Size: ${response?.fileSizeBytes}")
                 if (response?.fileSizeBytes!! < 400000) {
                     withContext(Dispatchers.Main) {
