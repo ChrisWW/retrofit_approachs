@@ -66,13 +66,14 @@ class MainActivity : AppCompatActivity() {
                     }
                 } else {
                     withContext(Dispatchers.Main) {
-                    val text = "Size too big -> Roll it ->>>"
+                    val text = "Size too big (AUTO RELOAD)"
                     val duration = Toast.LENGTH_SHORT
 
                     val toast = Toast.makeText(applicationContext, text, duration)
                     toast.show()
                     }
                     RetrofitInstance.repoAPI
+                    makeApiRequest()
                 }
 
             } catch (e: Exception) {
