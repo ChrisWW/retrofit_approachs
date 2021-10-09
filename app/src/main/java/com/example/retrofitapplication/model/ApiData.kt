@@ -1,4 +1,4 @@
-package com.example.retrofitapplication.api
+package com.example.retrofitapplication.model
 
 data class ApiData (
     val fileSizeBytes: Int,

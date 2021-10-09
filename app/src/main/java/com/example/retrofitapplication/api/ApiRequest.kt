@@ -1,5 +1,6 @@
 package com.example.retrofitapplication.api
 
+import com.example.retrofitapplication.model.ApiData
 import retrofit2.http.GET
 
 const val BASE_URL = "https://random.dog"
